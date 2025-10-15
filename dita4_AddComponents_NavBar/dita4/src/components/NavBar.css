@@ -1,0 +1,143 @@
+/* .navbar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .navbar h1 {
+    color: #f1356d;
+  }
+  .navbar .links {
+    margin-left: auto;
+  }
+  .navbar a {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+  }
+  .navbar a:hover {
+    color: #f1356d;
+  } */
+
+/* Stilet për navbarin */
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  border-bottom: 2px solid #f2f2f2;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.navbar h1 {
+  color: #f1356d;
+  font-size: 28px;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar .links {
+  margin-left: auto;
+  display: flex;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 8px 12px;
+  color: #333;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffffff;
+  background-color: #f1356d;
+  transform: scale(1.05);
+}
+
+.navbar a:active {
+  transform: scale(0.98);
+}
+
+/* Media query për desktopët e mëdhenj (gjerësi mbi 1200px) */
+@media screen and (min-width: 1200px) {
+  .navbar {
+    max-width: 1200px; /* Rritja e gjerësisë për ekrane më të mëdhenj */
+    padding: 25px;
+  }
+
+  .navbar h1 {
+    font-size: 32px;
+  }
+
+  .navbar a {
+    padding: 10px 15px;
+  }
+}
+
+/* Media query për ekrane mesatare (tableta, laptops) 768px - 1199px */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .navbar {
+    max-width: 900px;
+    padding: 20px;
+  }
+
+  .navbar h1 {
+    font-size: 28px;
+  }
+
+  .navbar .links {
+    margin-left: auto;
+  }
+
+  .navbar a {
+    margin-left: 16px;
+    padding: 8px 12px;
+  }
+}
+/* Media query për tabletët dhe ekranet e vogla (mobile) 481px - 767px */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .navbar h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .navbar .links {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .navbar a {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+/* Media query për celularët shumë të vegjël (mobile) deri në 480px */
+@media screen and (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+    padding: 6px 10px;
+    margin-top: 6px;
+  }
+}

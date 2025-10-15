@@ -1,0 +1,16 @@
+1. Instalimi i VSC
+2. Instalimi i Git 
+3. Instalimi i Node.js
+
+Krijimi i React app
+
+1. npx create-react-app emri projektit
+(metod e vjetruar)
+
+2. npm create vite@latest
+3. zgjedhim emrin e projektit
+4. Zgjedhim React
+5. Zgjedhim Javascript
+6. Hyjme brenda projektit me CD komanden
+7. Instalimi i node brenda projektit (npm install)
+8. npm run dev (per ta startuar projektin)

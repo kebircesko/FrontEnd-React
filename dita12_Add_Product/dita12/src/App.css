@@ -1,0 +1,195 @@
+/* Variablat e theme-it */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --secondary-text-color: #555555;
+  --card-bg-color: #f9f9f9;
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --danger-color: red;
+  --danger-hover-color: darkred;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --secondary-text-color: #cccccc;
+  --card-bg-color: #1e1e1e;
+  --primary-color: #3399ff;
+  --primary-hover-color: #2277cc;
+  --danger-color: #ff4c4c;
+  --danger-hover-color: #cc3a3a;
+}
+
+/* Body */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+/* Titujt */
+h1, h2 {
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* Lista e produkteve */
+.product-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: var(--card-bg-color);
+}
+
+.product-item img {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.product-info p {
+  margin: 5px 0;
+  color: var(--secondary-text-color);
+}
+
+.product-info strong {
+  font-weight: bold;
+}
+
+/* Butonat */
+.delete-button {
+  padding: 10px 20px;
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: var(--danger-hover-color);
+}
+
+.add-product-form,
+.edit-product-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+}
+
+.add-product-form h2,
+.edit-product-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-product-form form div {
+  margin-bottom: 15px;
+}
+
+.add-product-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.add-product-form input,
+.add-product-form textarea,
+.add-product-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.add-product-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.add-product-form button,
+.edit-buttons button[type="submit"],
+.edit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-product-form button:hover,
+.edit-buttons button[type="submit"]:hover,
+.edit-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-buttons button[type="button"] {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.edit-buttons button[type="button"]:hover {
+  background-color: var(--danger-hover-color);
+}
+
+.product-actions {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  padding: 8px 16px;
+  background-color: var(--bg-color);
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.filter-buttons button:hover {
+  background-color: var(--card-bg-color);
+}

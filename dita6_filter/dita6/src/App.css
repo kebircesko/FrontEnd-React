@@ -1,0 +1,46 @@
+/* App.css */
+.App {
+  text-align: center;
+}
+
+.image-slider {
+  position: relative;
+  width: 900px;
+  height: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slider-image {
+  width: auto;
+  height: inherit;
+}
+img{
+  width: 400px;
+  height: 200px;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

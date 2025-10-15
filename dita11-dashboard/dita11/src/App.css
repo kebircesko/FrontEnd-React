@@ -1,0 +1,112 @@
+/* Stili bazë për trupin e faqes */
+body {
+  position: absolute;
+  left:7%;
+  /* margin-left: 10%; */
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* Kontejneri kryesor */
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Header */
+.App-header {
+  background: linear-gradient(90deg, #1e293b, #334155);
+  padding: 30px 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.App-header h1 {
+  margin: 10px 0;
+  font-size: 2rem;
+  color: #38bdf8;
+}
+
+/* Loading */
+.loading {
+  font-size: 1.5rem;
+  color: #facc15;
+  margin-top: 50px;
+}
+
+/* Grid layout për 3-4 kolona në rresht */
+.coin-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolona në rresht */
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Për ekranet e mediuma (tablet) - 3 kolona */
+@media (max-width: 1024px) {
+  .coin-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Për ekranet e vogla (mobile) - 2 kolona */
+@media (max-width: 768px) {
+  .coin-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Për ekranet shumë të vogla - 1 kolonë */
+@media (max-width: 480px) {
+  .coin-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stili për secilën kartëmonedhë */
+.coin-item {
+  background-color: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.coin-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo e kartëmonedhës */
+.coin-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+/* Detajet */
+.coin-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coin-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #38bdf8;
+  margin-bottom: 6px;
+}
+
+.coin-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4ade80;
+}

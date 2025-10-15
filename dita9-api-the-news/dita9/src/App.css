@@ -1,0 +1,123 @@
+/* Reset dhe background */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #f4f4f4;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Qendra e faqes */
+.App {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 30px 5vw;
+  background-color: #f4f4f4;
+  color: #333;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Titulli */
+h1 {
+  text-align: center;
+  color: #0077cc;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+}
+
+/* Grid i lajmeve */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));/* e bën grid-in automatikisht të përshtatet në çdo madhësi ekrani.*/
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Artikujt */
+.news-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-item:hover {
+  transform: scale(1.02);
+}
+
+.news-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-item h3 {
+  margin: 15px;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.news-item p {
+  margin: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.news-item a {
+  margin: 0 15px 15px;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.news-item a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Responsive adjustments për pajisje të vogla */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 4vw;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .news-image {
+    height: 160px;
+  }
+
+  .news-item h3 {
+    font-size: 1rem;
+  }
+
+  .news-item p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 20px 3vw;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-image {
+    height: 140px;
+  }
+}
