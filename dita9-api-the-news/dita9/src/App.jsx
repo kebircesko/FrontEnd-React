@@ -21,10 +21,10 @@ function App() {
   const [error, setError] = useState("");
 
   // API key merret pasi të regjistrohesh në faqen https://newsapi.org
-  const apiKey = "ffcae0dce5bd4257b88c001e3d07b071";
+  const apiKey = "cf57efc263634fb989647f0b7b33e5d7";
 
   // URL për të marrë lajmet rreth fjalës kyçe "apple" për një datë të caktuar
-  const url = `https://newsapi.org/v2/everything?q=apple&from=2025-06-09&to=2025-06-09&sortBy=popularity&apiKey=${apiKey}`;
+  const url = `https://newsapi.org/v2/everything?q=apple&from=2025-10-27&to=2025-10-27&sortBy=popularity&apiKey=${apiKey}`;
 
   // Funksioni për të marrë lajmet nga API
   const fetchNews = async () => {
