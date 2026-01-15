@@ -1,0 +1,187 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* --- Logo --- */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* --- Kontejneri i login / card --- */
+.card {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Titulli i formularit */
+.card h2 {
+  margin-bottom: 25px;
+  color: #333333;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Mesazhet e suksesit dhe gabimit */
+.error-message,
+.success-message {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  animation: slideDown 0.5s ease forwards;
+}
+
+.error-message {
+  background-color: #ffe0e0;
+  color: #d8000c;
+}
+
+.success-message {
+  background-color: #e0ffe0;
+  color: #006400;
+}
+
+/* --- Input grupet me floating labels --- */
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  color: #999;
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input {
+  padding: 15px 12px;
+  border: 1.5px solid #cccccc;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.5);
+  outline: none;
+}
+
+/* Floating label efekt */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #667eea;
+  background-color: #ffffff;
+  padding: 0 4px;
+}
+
+/* --- Button modern --- */
+.submit-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.5);
+}
+
+/* --- Animacione --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive për mobile --- */
+@media (max-width: 500px) {
+  #root {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+
+  .card h2 {
+    font-size: 24px;
+  }
+
+  .input-group input {
+    padding: 12px 10px;
+  }
+
+  .submit-button {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .logo {
+    height: 5em;
+    padding: 1em;
+  }
+}

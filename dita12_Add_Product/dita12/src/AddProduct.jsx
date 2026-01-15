@@ -1,6 +1,5 @@
 // Importojmë React dhe useState për të menaxhuar state-in lokal
 import React, { useState } from "react";
-
 // Komponenti AddProduct pranon funksionin addProduct si prop
 const AddProduct = ({ addProduct }) => {
   // State për të ruajtur të dhënat e formularit , krijohet objekti si me posht:
@@ -34,7 +33,6 @@ const AddProduct = ({ addProduct }) => {
       image: "",
     });
   };
-
   // Ky funksion thirret sa herë përdoruesi shkruan diçka në input.
   const handleChange = (e) => {
     const { name, value } = e.target; // Merr emrin dhe vlerën nga input-i
@@ -125,15 +123,9 @@ const AddProduct = ({ addProduct }) => {
     </div>
   );
 };
-
 // useState → menaxhon të dhënat e formularit.
-
 // handleChange → përditëson formData për çdo ndryshim në input.
-
 // handleSubmit → krijon produktin e ri dhe e dërgon te addProduct.
-
 // Pas submit, inputet pastrohen automatikisht.
-
-
 // Eksportojmë komponentin për ta përdorur në App.js
 export default AddProduct;

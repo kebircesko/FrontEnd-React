@@ -20,7 +20,7 @@ function App() {
         params: {
           vs_currency: 'usd', // Monedha me të cilën krahasohen të gjitha kriptovalutat (USD)
           order: 'market_cap_desc', // Rendit kriptovalutat nga ajo me kapitalin më të madh
-          per_page: 40, // Merr 40 kriptovaluta në një faqe
+          per_page: 100, // Merr 40 kriptovaluta në një faqe
           page: 1, // Tregon faqen që po marrim (faqja e parë)
         }             
       })
@@ -42,7 +42,7 @@ function App() {
     // Përditësojmë të dhënat çdo 5 sekonda automatikisht
     const intervalId = setInterval(() => {
       fetchCoins(); // Marrim të dhënat përsëri
-    }, 1000); // çdo 5000 milisekonda (5 sekonda)
+    }, 1000); // çdo 1000 milisekonda (1 sekonda)
 
     // Funksioni që ndalon intervalin kur komponenti largohet nga ekrani
     return () => clearInterval(intervalId);

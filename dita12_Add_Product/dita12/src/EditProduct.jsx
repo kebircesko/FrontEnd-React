@@ -1,47 +1,57 @@
-// Importojmë React dhe hook-et useState dhe useEffect
-// React për të krijuar komponentin.
-// useState për të menaxhuar gjendjen (state) lokale.
-// useEffect për të sinkronizuar state-in kur ndryshon product.
 import React, { useState, useEffect } from "react";
 
-// Komponenti EditProduct pranon product (për të edituar),
-// updateProduct (për ta ruajtur ndryshimin) dhe onCancel (për me anulu)
 const EditProduct = ({ product, updateProduct, onCancel }) => {
-  // State lokal për të ruajtur të dhënat e formularit gjatë editimit
-  //formData → mban të dhënat aktuale që shfaqen në formular gjatë editimit.
   const [formData, setFormData] = useState(product);
+  const [previewImage, setPreviewImage] = useState(product.image || "");
+  const [imageSource, setImageSource] = useState("url"); // "url" ose "file"
 
-  // useEffect për të përditësuar formData sa herë që product ndryshon
-  //Ky efekt ekzekutohet sa herë që product ndryshon.
-  //Siguron që nëse përdoruesi zgjedh një produkt tjetër për ta edituar, formulari përditësohet me të dhënat e tij.
   useEffect(() => {
     setFormData(product);
+    setPreviewImage(product.image || "");
   }, [product]);
 
-  // Funksion që ekzekutohet kur forma dërgohet (submit)
   const handleSubmit = (e) => {
-    e.preventDefault(); // Parandalon rifreskimin e faqes
-    updateProduct(formData); // Thërret funksionin për të përditësuar produktin
-    onCancel(); // Mbyll formularin e editimit
+    e.preventDefault();
+    updateProduct({ ...formData, image: previewImage });
+    onCancel();
   };
 
-  // Funksion që përditëson state-in sa herë që përdoruesi shkruan në input
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Përditëson state-in përkatës në formData
     setFormData((prevData) => ({
       ...prevData,
-      [name]: name === "price" ? Number(value) : value, // E konverton çmimin në numër nëse input-i është për çmim
+      [name]: name === "price" ? Number(value) : value,
     }));
+
+    // Nëse po ndryshohet URL e imazhit dhe burimi është "url"
+    if (name === "image" && imageSource === "url") {
+      setPreviewImage(value);
+    }
+  };
+
+  // Kur përdoruesi zgjedh file nga kompjuteri
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const imageURL = URL.createObjectURL(file);
+      setPreviewImage(imageURL);
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prevData) => ({
+          ...prevData,
+          imageFile: reader.result, // opsionale për backend
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
-    <div className="edit-product-form">
+    <div className="edit-product-form" style={{ maxWidth: "500px", margin: "auto" }}>
       <h2>Edit Product</h2>
-      {/* Formulari për editimin e produktit */}
       <form onSubmit={handleSubmit}>
-        {/* Input për emrin */}
+        {/* Emri */}
         <div>
           <label htmlFor="name">Product Name:</label>
           <input
@@ -54,7 +64,7 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
           />
         </div>
 
-        {/* Input për çmimin */}
+        {/* Çmimi */}
         <div>
           <label htmlFor="price">Price ($):</label>
           <input
@@ -67,7 +77,7 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
           />
         </div>
 
-        {/* Textarea për përshkrimin */}
+        {/* Përshkrimi */}
         <div>
           <label htmlFor="description">Description:</label>
           <textarea
@@ -79,7 +89,7 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
           />
         </div>
 
-        {/* Select për kategorinë */}
+        {/* Kategoria */}
         <div>
           <label htmlFor="category">Category:</label>
           <select
@@ -96,23 +106,80 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
           </select>
         </div>
 
-        {/* Input për URL e imazhit */}
-        <div>
-          <label htmlFor="image">Image URL:</label>
-          <input
-            type="url"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-            required
-          />
+        {/* 🔹 Zgjedhja e burimit të imazhit */}
+        <div style={{ marginTop: "15px" }}>
+          <label>Image Source:</label>
+          <div>
+            <label>
+              <input
+                type="radio"
+                name="imageSource"
+                value="url"
+                checked={imageSource === "url"}
+                onChange={() => setImageSource("url")}
+              />
+              Use Web URL
+            </label>
+
+            <label style={{ marginLeft: "15px" }}>
+              <input
+                type="radio"
+                name="imageSource"
+                value="file"
+                checked={imageSource === "file"}
+                onChange={() => setImageSource("file")}
+              />
+              Upload File
+            </label>
+          </div>
         </div>
 
-        {/* Butonat për ruajtje ose anulim */}
-        <div className="edit-buttons">
+        {/* 🔹 Input për URL ose për File sipas zgjedhjes */}
+        {imageSource === "url" ? (
+          <div>
+            <label htmlFor="image">Image URL:</label>
+            <input
+              type="url"
+              id="image"
+              name="image"
+              value={formData.image}
+              onChange={handleChange}
+              placeholder="https://example.com/image.jpg"
+            />
+          </div>
+        ) : (
+          <div>
+            <label htmlFor="imageUpload">Choose File:</label>
+            <input
+              type="file"
+              id="imageUpload"
+              accept="image/*"
+              onChange={handleImageUpload}
+            />
+          </div>
+        )}
+
+        {/* 🔹 Pamja paraprake */}
+        {previewImage && (
+          <div style={{ marginTop: "10px", textAlign: "center" }}>
+            <img
+              src={previewImage}
+              alt="Preview"
+              style={{
+                width: "150px",
+                height: "150px",
+                objectFit: "cover",
+                borderRadius: "10px",
+                border: "1px solid #ccc",
+              }}
+            />
+          </div>
+        )}
+
+        {/* Butonat */}
+        <div className="edit-buttons" style={{ marginTop: "15px" }}>
           <button type="submit">Save Changes</button>
-          <button type="button" onClick={onCancel}>
+          <button type="button" onClick={onCancel} style={{ marginLeft: "10px" }}>
             Cancel
           </button>
         </div>
@@ -121,5 +188,4 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
   );
 };
 
-// Eksportojmë komponentin që të përdoret në App.js
 export default EditProduct;
