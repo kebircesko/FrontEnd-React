@@ -1,9 +1,11 @@
 // Importojmë useState nga React për të ruajtur gjendjen (state)
+//useState-me ruajt vlera që ndryshojnë gjatë përdorimit të aplikacionit
 import { useState } from 'react';
 
 // Krijojmë komponentin funksional ColorBox
 function ColorBox() {
 
+    //const-variabla konstante
     // Krijojmë një state me emrin "color"
     // "lightblue" është vlera fillestare
     const [color, setColor] = useState("lightblue");
