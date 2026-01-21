@@ -1,26 +1,48 @@
-import {useState} from 'react';
+// Importojmë useState nga React për të ruajtur gjendjen (state)
+import { useState } from 'react';
 
+// Krijojmë komponentin funksional ColorBox
 function ColorBox() {
-    const [color, setColor] = useState("lightblue"); // State për ngjyrën
-  
+
+    // Krijojmë një state me emrin "color"
+    // "lightblue" është vlera fillestare
+    const [color, setColor] = useState("lightblue");
+
+    // Funksion që ndryshon ngjyrën kur klikohet butoni
     const changeColor = () => {
-      // Nëse ngjyra është blu, kalo në verdhë, ndryshe kthehu në blu
-      setColor(color === "lightblue" ? "lightgreen" : "lightblue");
+
+        // Kontrollojmë ngjyrën aktuale
+        // Nëse është "lightblue" → bëhet "lightgreen"
+        // Përndryshe → kthehet prapë në "lightblue"
+        setColor(color === "lightblue" ? "lightgreen" : "lightblue");
     };
 
+    // JSX që shfaqet në browser
     return (
-      <div>
-        <h2>Kliko butonin për të ndryshuar ngjyrën:</h2>
-        <div style={{
-          width: '200px',
-          height: '200px',
-          backgroundColor: color,
-          border: '2px solid black',
-          marginBottom: '10px'
-        }}></div>
-        <button onClick={changeColor}>Ndrysho Ngjyrën</button>
-      </div>
+        <div>
+
+            {/* Titulli udhëzues */}
+            <h2>Kliko butonin për të ndryshuar ngjyrën:</h2>
+
+            {/* Kutia që ndryshon ngjyrë */}
+            <div
+                style={{
+                    width: '200px',          // Gjerësia e kutisë
+                    height: '200px',         // Lartësia e kutisë
+                    backgroundColor: color,  // Ngjyra varet nga state "color"
+                    border: '2px solid black', // Kufiri i kutisë
+                    marginBottom: '10px'     // Hapësirë poshtë kutisë
+                }}
+            ></div>
+
+            {/* Butoni që thërret funksionin changeColor */}
+            <button onClick={changeColor}>
+                Ndrysho Ngjyrën
+            </button>
+
+        </div>
     );
-  }
-  export default ColorBox;
-  
+}
+
+// Eksportojmë komponentin që të përdoret në App.js
+export default ColorBox;
