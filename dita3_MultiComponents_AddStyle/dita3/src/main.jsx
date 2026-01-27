@@ -24,6 +24,5 @@ createRoot(document.getElementById('root')).render(
 
     {/* Thërrasim komponentin kryesor të aplikacionit */}
     <App />
-
   </StrictMode>
 );
