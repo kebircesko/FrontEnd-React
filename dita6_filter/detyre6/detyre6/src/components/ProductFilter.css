@@ -1,0 +1,40 @@
+.filter {
+  width: 300px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.filter h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.filter input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filter ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter li {
+  padding: 8px;
+  margin-bottom: 6px;
+  background-color: #eaeaea;
+  border-radius: 4px;
+  font-size: 14px;
+  color:green
+}
+.filter li:hover {
+  background-color: #d4d4d4;
+  cursor: pointer;
+}

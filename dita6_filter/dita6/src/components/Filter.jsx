@@ -51,3 +51,4 @@ function Filter() {
 
 // Eksportimi i komponentit për ta përdorur në pjesë të tjera të aplikacionit
 export default Filter;
+
