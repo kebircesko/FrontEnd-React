@@ -4,6 +4,7 @@ function Home() {
   return (
     <section className='home'>
       Home Page
+      <p>Shkolla Digjitale Prizren</p>
     </section>
   )
 }

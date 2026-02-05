@@ -83,6 +83,4 @@ function App() {
     </div>
   );  
 }
-
-// Eksportimi i komponentit App që të përdoret në pjesët tjera të aplikacionit
 export default App;

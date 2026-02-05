@@ -1,5 +1,5 @@
 // Importojmë useState nga React për të ruajtur gjendjen (state)
-//useState-me ruajt vlera që ndryshojnë gjatë përdorimit të aplikacionit
+//useState-me ruajt vlerat(te variablave) që ndryshojnë gjatë përdorimit të aplikacionit
 import { useState } from 'react';
 
 // Krijojmë komponentin funksional ColorBox
@@ -21,28 +21,26 @@ function ColorBox() {
 
     // JSX që shfaqet në browser
     return (
-        <div>
-
-            {/* Titulli udhëzues */}
-            <h2>Kliko butonin për të ndryshuar ngjyrën:</h2>
-
-            {/* Kutia që ndryshon ngjyrë */}
-            <div
-                style={{
-                    width: '200px',          // Gjerësia e kutisë
-                    height: '200px',         // Lartësia e kutisë
-                    backgroundColor: color,  // Ngjyra varet nga state "color"
-                    border: '2px solid black', // Kufiri i kutisë
-                    marginBottom: '10px'     // Hapësirë poshtë kutisë
-                }}
-            ></div>
-
-            {/* Butoni që thërret funksionin changeColor */}
-            <button onClick={changeColor}>
-                Ndrysho Ngjyrën
-            </button>
-
-        </div>
+        <>
+            <div>
+                {/* Titulli udhëzues */}
+                <h2>Kliko butonin për të ndryshuar ngjyrën:</h2>
+                {/* Kutia që ndryshon ngjyrë */}
+                <div
+                    style={{
+                        width: '200px',          // Gjerësia e kutisë
+                        height: '200px',         // Lartësia e kutisë
+                        backgroundColor: color,  // Ngjyra varet nga state "color"
+                        border: '2px solid black', // Kufiri i kutisë
+                        marginBottom: '10px'     // Hapësirë poshtë kutisë
+                    }}
+                ></div>
+                {/* Butoni që thërret funksionin changeColor */}
+                <button onClick={changeColor}>
+                    Ndrysho Ngjyrën
+                </button>
+            </div>
+        </>
     );
 }
 

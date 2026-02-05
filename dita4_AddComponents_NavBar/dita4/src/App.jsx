@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';//impo
 import Home from './components/Home';//komponenti qe kemi krijuar 
 import Project from './components/Project';//komponenti qe kemi krijuar 
 import About  from './components/About' //komponenti qe kemi krijuar 
-import NavBar from "./components/NavBar";//komponenti qe kemi krijuar 
+import NavBar from "./components/NavBar";//komponenti qe kemi krijuar h
 import './App.css'
 
 const App = () => {

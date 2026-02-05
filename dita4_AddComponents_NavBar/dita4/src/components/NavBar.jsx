@@ -7,11 +7,12 @@ const Navbar = () => {
     //const style = {color: 'blue', backgroundColor: 'lightblue' } 
     return ( 
         <div className="navbar">
-        <h1>Menu</h1>
+        <h1>NavBar</h1>
         <div className="links">
             <Link to="/home">Home</Link>{/*kjo eshte pjesa qe lidhet me komponentin Home*/}
             <Link to="/about">About</Link>{/*kjo eshte pjesa qe lidhet me komponentin About*/}
             <Link to="/project">Project</Link>{/*kjo eshte pjesa qe lidhet me komponentin Project*/}
+        
         </div>
     </div>
      );
