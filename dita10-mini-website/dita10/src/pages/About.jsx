@@ -3,7 +3,7 @@ import '../App.css';
 // Komponenti About - jep informacione rreth kompanisë ose faqes
 const About = () => {
   return (
-    <div className="about" style={{ padding: '2rem' }}>
+    <div className="about">
       
       {/* Titulli i faqes */}
       <h1>Rreth Nesh</h1>

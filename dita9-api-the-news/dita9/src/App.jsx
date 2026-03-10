@@ -1,8 +1,14 @@
 // Importojmë React dhe hooks që na duhen: useState për të menaxhuar gjendjen dhe useEffect për të ekzekutuar funksione pas ngarkimit të komponentit
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Axios përdoret për të marrë të dhëna nga API. Duhet instaluar me komandën: npm install axios
+//Axios është një librari JavaScript që përdoret për me bo kërkesa HTTP (GET, POST, PUT, DELETE) drejt një API-je dhe për me marrë të dhëna nga serveri.
+/*
+Mendon sikur:
+Axios = kamerier
+API = kuzhina
+App-i yt = klienti
+*/
 import "./App.css"; // Importimi i stilit (CSS)
-
 /* 
 useState()->  Hook për të ruajtur gjendjen (p.sh. lajmet, ngarkimi, gabimet)
 useEffect()->	Hook që ekzekutohet automatikisht kur hapet komponenti
@@ -24,8 +30,7 @@ function App() {
   const apiKey = "cf57efc263634fb989647f0b7b33e5d7";
 
   // URL për të marrë lajmet rreth fjalës kyçe "apple" për një datë të caktuar
-  const url = `https://newsapi.org/v2/everything?q=apple&from=2025-10-27&to=2025-10-27&sortBy=popularity&apiKey=${apiKey}`;
-
+  const url = `https://newsapi.org/v2/everything?q=apple&apiKey=${apiKey}`;
   // Funksioni për të marrë lajmet nga API
   const fetchNews = async () => {
     try {

@@ -13,6 +13,7 @@ function App() {
 
   // useEffect përdoret për të bërë veprime sapo komponenti ngarkohet (ose ndryshon)
   useEffect(() => {
+    //useEffect"kur faqja hapet, bëje këtë veprim vetem nje here"
     // Funksioni që merr të dhënat nga API
     const fetchCoins = () => {
       // axios.get dërgon një kërkesë HTTP për të marrë të dhëna nga CoinGecko API
@@ -20,7 +21,7 @@ function App() {
         params: {
           vs_currency: 'usd', // Monedha me të cilën krahasohen të gjitha kriptovalutat (USD)
           order: 'market_cap_desc', // Rendit kriptovalutat nga ajo me kapitalin më të madh
-          per_page: 100, // Merr 40 kriptovaluta në një faqe
+          per_page: 50, // Merr  kriptovaluta në një faqe
           page: 1, // Tregon faqen që po marrim (faqja e parë)
         }             
       })
@@ -91,6 +92,5 @@ function App() {
     </div>
   );
 }
-
 // E eksportojmë komponentin që të mund të përdoret diku tjetër në aplikacion
 export default App;

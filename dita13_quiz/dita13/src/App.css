@@ -93,3 +93,29 @@ body {
     padding: 12px;
   }
 }
+.quiz-container {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.progress {
+  height: 10px;
+  background: #4caf50;
+  border-radius: 5px;
+}

@@ -42,30 +42,25 @@ function App() {
       image: 'URL e imazhit',
     },
   ];
-
   // Krijojmë state për produktet
   const [products, setProducts] = useState(initialProducts);
   // State për kategorinë e selektuar për filtrim
   const [selectedCategory, setSelectedCategory] = useState('All');
   // State për produktin që po editohet (nëse ka)
   const [editingProduct, setEditingProduct] = useState(null);
-
   // Funksion për të vendosur kategorinë e selektuar
   const filterProducts = (category) => {
     setSelectedCategory(category);
   };
-
   // Filtron produktet sipas kategorisë së selektuar
   const filteredProducts =
     selectedCategory === 'All'
       ? products // nëse është 'All' i shfaq të gjitha
-      : products.filter((product) => product.category === selectedCategory); // ndryshe i filtrin
-
+      : products.filter((product) => product.category === selectedCategory); // perndryshe i shfaq vetëm ato që përputhen me kategorinë
   // Funksion për të shtuar një produkt të ri në listë
   const addProduct = (newProduct) => {
     setProducts([...products, newProduct]); // shton produktin e ri në fund të listës
   };
-
   // Funksion për të përditësuar një produkt ekzistues
   const updateProduct = (updatedProduct) => {
     setProducts(
@@ -74,7 +69,6 @@ function App() {
       )
     );
   };
-
   return (
     <div className="container">
       {/* Nëse ka produkt për editim, shfaq formën e EditProduct */}
@@ -88,9 +82,7 @@ function App() {
         // Përndryshe shfaq formën për të shtuar produkt të ri
         <AddProduct addProduct={addProduct} />
       )}
-
       <h1>Product List</h1>
-
       {/* Butonat për filtrimin e produkteve sipas kategorisë */}
       <div className="filter-buttons">
         <button onClick={() => filterProducts('All')}>All</button>
@@ -98,7 +90,6 @@ function App() {
         <button onClick={() => filterProducts('Accessories')}>Accessories</button>
         <button onClick={() => filterProducts('Clothing')}>Clothing</button>
       </div>
-
       <div>
         <h2>Product List</h2>
         {/* Liston produktet e filtruar */}
@@ -144,6 +135,5 @@ function App() {
     </div>
   );
 }
-
 // Eksportojmë komponentin App për ta përdorur në index.js
 export default App;

@@ -10,20 +10,16 @@ const AddProduct = ({ addProduct }) => {
     category: "",
     image: "",
   });
-
   // Funksion që ekzekutohet kur formohet dhe dërgohet (submit)
   const handleSubmit = (e) => {
     e.preventDefault(); // Ndalo rifreskimin e faqes
-
     // Krijon një objekt të ri produkti nga të dhënat e formularit
     const newProduct = {
       id: Date.now(), // Gjeneron ID unike duke përdorur kohën aktuale
       ...formData, //fut të gjitha vlerat e shkruara nga përdoruesi.(name, price, description, category, image).
       price: Number(formData.price), // Sigurohet që çmimi të jetë numër
     };
-
     addProduct(newProduct); // E thërret funksionin për të shtuar produktin
-
     // Pas shtimit, e pastron formularin
     setFormData({
       name: "",
@@ -36,14 +32,12 @@ const AddProduct = ({ addProduct }) => {
   // Ky funksion thirret sa herë përdoruesi shkruan diçka në input.
   const handleChange = (e) => {
     const { name, value } = e.target; // Merr emrin dhe vlerën nga input-i
-
     // Përditëson state-in me të dhënat e reja
     setFormData((prevData) => ({
       ...prevData, //i kopjon të gjitha vlerat e mëparshme në një objekt të ri.
       [name]: value,
     }));
   };
-
   return (
     <div className="add-product-form">
       <h2>Add New Product</h2>
@@ -61,7 +55,6 @@ const AddProduct = ({ addProduct }) => {
             required
           />
         </div>
-
         {/* Input për çmimin */}
         <div>
           <label htmlFor="price">Price ($):</label>
@@ -74,7 +67,6 @@ const AddProduct = ({ addProduct }) => {
             required
           />
         </div>
-
         {/* Textarea për përshkrimin */}
         <div>
           <label htmlFor="description">Description:</label>
@@ -86,7 +78,6 @@ const AddProduct = ({ addProduct }) => {
             required
           />
         </div>
-
         {/* Select për kategorinë */}
         <div>
           <label htmlFor="category">Category:</label>
@@ -103,7 +94,6 @@ const AddProduct = ({ addProduct }) => {
             <option value="Clothing">Clothing</option>
           </select>
         </div>
-
         {/* Input për URL e imazhit */}
         <div>
           <label htmlFor="image">Image URL:</label>
@@ -116,7 +106,6 @@ const AddProduct = ({ addProduct }) => {
             required
           />
         </div>
-
         {/* Butoni për shtimin e produktit */}
         <button type="submit">Add Product</button>
       </form>

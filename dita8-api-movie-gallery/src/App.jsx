@@ -21,10 +21,14 @@ const genres = {
     "The Dark Knight",
     "The Matrix",
     "Mission: Impossible – The Final Reckoning",
-    "Heads of State (2025)",
+    "Heads of State",
+    "Game of Thrones: The House of the Dragon",
+    "Abigail",
+    "The Marvels",
+    
   ],
-  horror: ["The Conjuring", "It", "The Shining", "Hereditary", "The Exorcist","Alien: Earth",],
-  comedy: ["Superbad", "Step Brothers", "The Mask", "Borat", "The Hangover"],
+  horror: ["The Conjuring", "It", "The Shining", "Hereditary", "The Exorcist","Alien: Earth"],
+  comedy: ["Superbad", "Step Brothers", "The Mask", "Borat", "The Hangover","A Dog's Life "],
   kids: ["Frozen", "Toy Story", "Moana", "Finding Nemo","A Minecraft Movie"],
   romance: ["Twilight", "Heart Eyes", "50 First Dates", "Anyone But You","The Nutty Professor","The Life List",],
 };
@@ -84,6 +88,7 @@ function App() {
             {/* Informacione për filmin */}
             <p>{movie.Title}</p>
             <p>({movie.Year})</p>
+            <p>({movie.Runtime})</p>
             <p>IMDb Rating: {movie.imdbRating}</p>
             <p>{movie.Awards}</p>
             <p>{movie.Language}</p>
