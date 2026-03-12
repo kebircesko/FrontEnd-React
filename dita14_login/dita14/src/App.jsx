@@ -1,91 +1,69 @@
-// Importimi i React dhe hook-use (useState)
 import React, { useState } from 'react';
-// Importimi i Toast-it për mesazhe popup
-//https://react-hot-toast.com/
-import { Toaster, toast } from 'react-hot-toast'; //install me: npm install react-hot-toast 
-// Importimi i stilimit CSS
+import { Toaster, toast } from 'react-hot-toast';
+//Import Toster për të shfaqur njoftime në ekran
+import { Link } from "react-router-dom";
 import './App.css';
-
 function App() {
   // ---------------------------
-  // STATES (variablat që ruhen dhe ndryshojnë gjendjen)
+  // STATES
   // ---------------------------
-  const [username, setUsername] = useState(''); 
-  // username = vlera aktuale
-  // setUsername = funksion që ndryshon vlerën e username
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // E njejta gjë si username por për fjalëkalimin
   const [error, setError] = useState('');
-  // Ruajmë mesazhin e gabimit nëse ekziston
   const [success, setSuccess] = useState(false);
-  // Ruajmë statusin e kyçjes (true = sukses, false = gabim)
-  // ----------------------------------------------------------
-  // Funksion që thirret sa herë përdoruesi shkruan në input
-  // ----------------------------------------------------------
+  // ---------------------------
+  // HANDLE CHANGE
+  // ---------------------------
   const handleChange = (event) => {
-    // event.target.name = emri i input (username ose password)
-    // event.target.value = vlera që po shkruhet
     const { name, value } = event.target;
-    // Kontrollojmë se cili input po shkruhet
     if (name === 'username') setUsername(value);
     if (name === 'password') setPassword(value);
+
   };
-  // ----------------------------------------------------------
-  // Funksion që thirret kur klikohet butoni "Login"
-  // ----------------------------------------------------------
+  // ---------------------------
+  // HANDLE SUBMIT
+  // ---------------------------
   const handleSubmit = (event) => {
-    event.preventDefault(); 
-    // Parandalon refresh të faqes kur forma dërgohet
-    // Nëse njëri nga inputet është bosh
+    event.preventDefault();
     if (!username || !password) {
       setError('Të dy fushat janë të detyrueshme!');
       setSuccess(false);
-      toast.error('Të dy fushat janë të detyrueshme!'); // Mesazh dritare
-      return; 
-      // Ndërpret vazhdimin e funksionit
+      toast.error('Të dy fushat janë të detyrueshme!');
+      return;
     }
-    // Nëse kredencialet janë të sakta
     if (username === 'kebir' && password === 'admin123') {
-      setError('');            // Hiq gabimet
-      setSuccess(true);        // Vendos statusin e suksesit
-      toast.success('Jeni kyçur me sukses!'); // Popup suksesi
-    } else {
-      // Kredencialet e pasakta
+      setError('');
+      setSuccess(true);
+      toast.success('Jeni kyçur me sukses!');
+    } 
+    else {
       setError('Emri i përdoruesit ose fjalëkalimi është i pasaktë.');
       setSuccess(false);
       toast.error('Emri i përdoruesit ose fjalëkalimi është i pasaktë.');
     }
   };
-  // ----------------------------------------------------------
-  // JSX (HTML brenda React-it) – ajo që shfaqet në ekran
-  // ----------------------------------------------------------
+  // ---------------------------
+  // JSX
+  // ---------------------------
   return (
-    <div id="root"> 
-      {/* Komponenti i Toast-it (duhet një herë në app) */}
-      <Toaster position="top-center" reverseOrder={false} />
-      {/* Kutia e formularit (card) */}
+    <div id="root">
+      <Toaster position="top-center" />
       <div className="card">
-        {/* Titulli */}
         <h2>Login</h2>
-        {/* Mesazhi i gabimit */}
         {error && <div className="error-message">{error}</div>}
-        {/* Mesazhi i suksesit */}
         {success && <div className="success-message">Jeni kyçur me sukses!</div>}
-        {/* Forma që dërgon të dhënat */}
         <form onSubmit={handleSubmit}>
-          {/* Input për username */}
           <div className="input-group">
             <input
               type="text"
-              name="username"          
-              value={username}        
-              onChange={handleChange} 
-              placeholder=" "         
-              required                
+              name="username"
+              value={username}
+              onChange={handleChange}
+              placeholder=" "
+              required
             />
             <label>Emri i përdoruesit</label>
           </div>
-          {/* Input për password */}
           <div className="input-group">
             <input
               type="password"
@@ -97,14 +75,15 @@ function App() {
             />
             <label>Fjalëkalimi</label>
           </div>
-          {/* Butoni i login-it */}
           <button type="submit" className="submit-button">
             Login
           </button>
         </form>
+        <p style={{ marginTop: "15px" }}>
+          Nuk keni llogari? <Link to="/register">Regjistrohu</Link>
+        </p>
       </div>
     </div>
   );
 }
-// Eksportojmë komponentin që React ta përdorë në aplikacion
 export default App;
