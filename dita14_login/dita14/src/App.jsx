@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 //Import Toster për të shfaqur njoftime në ekran
+//per të instaluar: npm install react-hot-toast
+//linku per alert https://react-hot-toast.com/docs/toast
+//nje tjeter https://sweetalert2.github.io/#examples
 import { Link } from "react-router-dom";
+//install react-router-dom: npm install react-router-dom
 import './App.css';
 function App() {
   // ---------------------------
@@ -60,7 +64,7 @@ function App() {
               value={username}
               onChange={handleChange}
               placeholder=" "
-              required
+              // required
             />
             <label>Emri i përdoruesit</label>
           </div>
@@ -71,7 +75,7 @@ function App() {
               value={password}
               onChange={handleChange}
               placeholder=" "
-              required
+              // required
             />
             <label>Fjalëkalimi</label>
           </div>
