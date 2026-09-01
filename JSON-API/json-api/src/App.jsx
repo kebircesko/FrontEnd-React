@@ -10,14 +10,11 @@ function App() {
       <h1 style={{textAlign:'center',fontFamily:'sans-serif'}}>
         Shembull : JSON-API me ReactJS
       </h1>
-
       <Users />
       <hr style ={{margin :"40px 0"}}/>
-
       <DogImage />
      </div>
     </>
   );
 }
-
 export default App;

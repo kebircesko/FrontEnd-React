@@ -5,4 +5,4 @@ export const Students = [
   { id: 4, name: "Sumeja", age: 14 }
 ];
 
-//export default Students; // <--- kjo është shumë e rëndësishme!
+export default Students; // <--- kjo është shumë e rëndësishme!
