@@ -1,31 +1,16 @@
-// Importojmë useState nga React për të ruajtur gjendjen (state)
-//useState-me ruajt vlerat(te variablave) që ndryshojnë gjatë përdorimit të aplikacionit
 import { useState } from 'react';
 
-// Krijojmë komponentin funksional ColorBox
 function ColorBox() {
-
-    //const-variabla konstante
-    // Krijojmë një state me emrin "color"
-    // "lightblue" është vlera fillestare
     const [color, setColor] = useState("lightblue");
-
-    // Funksion që ndryshon ngjyrën kur klikohet butoni
     const changeColor = () => {
-
-        // Kontrollojmë ngjyrën aktuale
-        // Nëse është "lightblue" → bëhet "lightgreen"
-        // Përndryshe → kthehet prapë në "lightblue"
+        
         setColor(color === "lightblue" ? "lightgreen" : "lightblue");
     };
-
     // JSX që shfaqet në browser
     return (
-        <>
+        <> 
             <div>
-                {/* Titulli udhëzues */}
                 <h2>Kliko butonin për të ndryshuar ngjyrën:</h2>
-                {/* Kutia që ndryshon ngjyrë */}
                 <div
                     style={{
                         width: '200px',          // Gjerësia e kutisë
@@ -35,7 +20,7 @@ function ColorBox() {
                         marginBottom: '10px'     // Hapësirë poshtë kutisë
                     }}
                 ></div>
-                {/* Butoni që thërret funksionin changeColor */}
+            
                 <button onClick={changeColor}>
                     Ndrysho Ngjyrën
                 </button>
@@ -43,6 +28,4 @@ function ColorBox() {
         </>
     );
 }
-
-// Eksportojmë komponentin që të përdoret në App.js
 export default ColorBox;

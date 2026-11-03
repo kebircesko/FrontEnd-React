@@ -1,4 +1,3 @@
-import React from 'react'
 
 function Home() {
   return (
@@ -8,5 +7,4 @@ function Home() {
     </section>
   )
 }
-
 export default Home

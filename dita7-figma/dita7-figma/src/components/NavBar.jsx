@@ -1,5 +1,5 @@
 import{Link} from "react-router-dom"; //mos harohet te instalohet libraria npm install react-router-dom
-import "./Navbar.css";
+import "./NavBar.css";
 
 function Navbar() {
   return (
@@ -29,12 +29,12 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/destinations ">
+                <Link className="nav-link" to="/destinations">
                   About
                 </Link>
               </li>
                <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="contact">
+                <Link className="nav-link active" aria-current="page" to="/contact">
                   Contact
                 </Link>
               </li>

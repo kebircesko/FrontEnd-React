@@ -1,56 +1,75 @@
-/* Filter.css */
 .container {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: min(100%, 640px);
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid #dfe5ee;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 28px rgba(20, 34, 56, 0.1);
+  font-family: inherit;
+  color: #331718;
+}
+
+.container input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 16px;
+  margin-bottom: 18px;
+  border: 1px solid #c9d2df;
+  border-radius: 10px;
+  background-color: #f8fafc;
+  color: #172033;
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.container input::placeholder {
+  color: #7b8798;
+}
+
+.container input:focus {
+  border-color: #2563eb;
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.container ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e5eaf1;
+  border-radius: 10px;
+  list-style: none;
+  text-align: left;
+}
+
+.container li {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5eaf1;
+  background-color: #ffffff;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.container li:last-child {
+  border-bottom: none;
+}
+
+.container li:nth-child(odd) {
+  background-color: #f8fafc;
+}
+
+.container li:hover {
+  padding-left: 20px;
+  background-color: #eef4ff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 16px;
   }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-  }
-  
-  input:focus {
-    border-color: #007BFF;
-    outline: none;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    font-size: 18px;
-  }
-  
-  li:last-child {
-    border-bottom: none;
-  }
-  
-  li:nth-child(odd) {
-    background-color: #f0f0f0;
-  }
-  
-  li:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .no-results {
-    color: #888;
-    font-style: italic;
-    padding: 10px;
-  }
+}
   

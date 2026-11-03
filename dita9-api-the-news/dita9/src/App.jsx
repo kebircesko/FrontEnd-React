@@ -30,41 +30,40 @@ function App() {
   const apiKey = "cf57efc263634fb989647f0b7b33e5d7";
 
   // URL për të marrë lajmet rreth fjalës kyçe "apple" për një datë të caktuar
-  const url = `https://newsapi.org/v2/everything?q=apple&apiKey=${apiKey}`;
-  // Funksioni për të marrë lajmet nga API
-  const fetchNews = async () => {
-    try {
-      const response = await axios.get(url); // Pret përgjigjen nga API para se të vazhdojë më tej
-      // Ruajmë listën e lajmeve në state
-      setArticles(response.data.articles);
-      // Printojmë në console për kontroll
-      console.log(response.data.articles);
-      // Pasi mbaron ngarkimi, e vendosim në false
-      setLoading(false);
-    } catch (err) {
-      // Nëse ndodh një gabim, e ruajmë mesazhin e gabimit
-      setError("Ndodhi një gabim gjatë kërkimit të lajmeve.");
-
-      // Edhe në rast gabimi, ngarkimi përfundon
-      setLoading(false);
-    }
-  };
-  // useEffect përdoret për të thirrur fetchNews vetëm një herë, kur komponenti ngarkohet për herë të parë
+  const url = `https://newsapi.org/v2/everything?q=samsung&apiKey=${apiKey}`;
+  //  const url = `https://newsapi.org/v2/everything?q=tesla&from=2026-09-15&sortBy=publishedAt&apiKey=${apiKey}`;
+  // useEffect merr lajmet kur ngarkohet komponenti dhe kur ndryshon URL-ja
   useEffect(() => {
+    // Funksioni për të marrë lajmet nga API
+    const fetchNews = async () => {
+      try {
+        const response = await axios.get(url); // Pret përgjigjen nga API para se të vazhdojë më tej
+        // Ruajmë listën e lajmeve në state
+        setArticles(response.data.articles);
+        // Printojmë në console për kontroll
+        console.log(response.data.articles);
+        // Pasi mbaron ngarkimi, e vendosim në false
+        setLoading(false);
+      } catch {
+        // Nëse ndodh një gabim, e ruajmë mesazhin e gabimit
+        setError("Ndodhi një gabim gjatë kërkimit të lajmeve.");
+
+        // Edhe në rast gabimi, ngarkimi përfundon
+        setLoading(false);
+      }
+    };
+
     fetchNews(); // Thirrja e funksionit që merr lajmet
-  }, []);
+  }, [url]);
 
   // JSX që përshkruan strukturën e faqes në pamje
   return (
     <div className="App">
-      <h1>Lajmet e Fundit</h1>
-
+      <h1 className="subtitle">Lajmet e Fundit</h1>
       {/* Nëse është duke u ngarkuar, shfaqet ky mesazh */}
       {loading && <p>Po ngarkohen lajmet...</p>}
-
       {/* Nëse ka ndodhur ndonjë gabim, shfaqet këtu */}
       {error && <p>{error}</p>}
-
       {/* Pasi lajmet janë ngarkuar, krijojmë një rrjet (grid) me secilën prej tyre */}
       <div className="news-grid">
         {articles.map((article, index) => (
@@ -79,10 +78,8 @@ function App() {
             )}
             {/* Titulli i lajmit */}
             <h3>{article.title}</h3>
-
             {/* Përshkrimi i lajmit */}
             <p>{article.description}</p>
-
             {/* Linku që çon në artikullin origjinal */}{/*noreferrer	Nuk lejon dërgimin e informacionit se nga erdhi klikimi */}
             <a href={article.url} target="_blank" rel="noopener noreferrer"> {/*noopener	Mbron faqen e tanishme nga manipulimi nga faqja e re */}
               Lexo më shumë

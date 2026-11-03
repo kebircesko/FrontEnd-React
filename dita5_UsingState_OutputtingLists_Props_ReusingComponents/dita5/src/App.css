@@ -4,23 +4,54 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Container për të mbajtur kartat në grid */
-.car-list {
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #222;
+  text-align: center;
+}
+
+/* Container i përbashkët për të mbajtur kartat në grid */
+.card-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  padding: 20px;
+}
+
+.student-task {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 2px solid #dbeafe;
+}
+
+.student-task > p {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: #555;
+  text-align: center;
 }
 
 /* Për tabletë dhe desktop */
 @media (min-width: 600px) {
-  .car-list {
+  .card-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 900px) {
-  .car-list {
+  .card-list {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+.title-color {
+  color: #f9fafc; /* Ngjyra e titullit */
+  font-size: 3rem;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #1e3a8a, #3b82f6);
 }

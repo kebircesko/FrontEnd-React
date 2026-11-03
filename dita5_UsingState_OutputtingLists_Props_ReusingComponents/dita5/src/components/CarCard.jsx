@@ -1,4 +1,3 @@
-import React from "react";  // Importimi i bibliotekës React
 import "./Card.css";  // Importimi i skedarit CSS për stilizimin
 // Definimi i komponentit CarCard që merr si props(parameter,variabel) detajet e makinës
 function CarCard({ brand, model, year, description, image }) {
@@ -14,7 +13,6 @@ function CarCard({ brand, model, year, description, image }) {
       <p className="car-model">
         Modeli: <strong>{model}</strong>
       </p>
-
       {/* Shfaqja e vitit të prodhimit të makinës */}
       <p className="car-year">Viti i prodhimit: {year}</p>
 

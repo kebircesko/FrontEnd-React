@@ -11,6 +11,8 @@ function App() {
   const [coins, setCoins] = useState([]); // useState na jep mundësinë të ruajmë gjendjen (state)
   const [loading, setLoading] = useState(true); // fillimisht është true derisa të merren të dhënat
 
+  const [error, setError] = useState('');
+
   // useEffect përdoret për të bërë veprime sapo komponenti ngarkohet (ose ndryshon)
   useEffect(() => {
     //useEffect"kur faqja hapet, bëje këtë veprim vetem nje here"
@@ -28,22 +30,24 @@ function App() {
       .then((response) => {
         // Nëse të dhënat vijnë me sukses, i ruajmë në coins dhe ndalojmë ngarkimin
         console.log('Data from API:', response.data);  
+        setError('');
         setCoins(response.data); // Vendosim të dhënat në variablën coins
         setLoading(false); // Nuk jemi më duke pritur
       })
       .catch((error) => {
         // Nëse ka ndonjë gabim gjatë marrjes së të dhënave, e shfaqim në konzolë
         console.error("Error fetching data", error);
+        setError('Nuk u morën të dhënat. Provo përsëri pas pak; CoinGecko mund t’i ketë kufizuar kërkesat.');
         setLoading(false); // Gjithsesi e ndalim ngarkimin edhe nëse ndodh gabim
       });
     };
 
     fetchCoins(); // E thërrasim funksionin për të marrë të dhënat për herë të parë
 
-    // Përditësojmë të dhënat çdo 5 sekonda automatikisht
+    // Përditësojmë të dhënat çdo 60 sekonda automatikisht
     const intervalId = setInterval(() => {
       fetchCoins(); // Marrim të dhënat përsëri
-    }, 1000); // çdo 1000 milisekonda (1 sekonda)
+    }, 60000); // çdo 60 sekonda
 
     // Funksioni që ndalon intervalin kur komponenti largohet nga ekrani
     return () => clearInterval(intervalId);
@@ -60,6 +64,7 @@ function App() {
 
       {/* Pjesa kryesore e përmbajtjes */}
       <main>
+        {error && <p role="alert">{error}</p>}
         {/* Nëse të dhënat ende po ngarkohen, shfaqim mesazhin "Loading..." */}
         {loading ? (
           <div className="loading">Loading...</div>

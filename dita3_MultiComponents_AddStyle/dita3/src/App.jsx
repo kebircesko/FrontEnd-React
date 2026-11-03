@@ -1,12 +1,11 @@
 // Importojmë useState nga React për të ruajtur gjendje (state)
-import { useState } from 'react'
 // Importojmë komponentin tonë ColorBox
 // Ky komponent përmban kutinë që ndryshon ngjyrën
 import ColorBox from './ColorBox'
+import DetyraKlase from './DetyraKlase'
 // Importojmë logot e React dhe Vite (p.sh për shfaqje ose ikonë)
 // Këto janë imazhe SVG të përdorura zakonisht në template
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 // Importojmë CSS-in kryesor për këtë komponent
 import './App.css'
 // Krijojmë komponentin kryesor të aplikacionit
@@ -19,8 +18,10 @@ function App() {
     <>    
       {/* Thërrasim komponentin ColorBox që shfaq kutinë me ngjyrë */}
       <ColorBox/>
-    </>
 
+      {/* Detyra e zgjidhur gjatë orës */}
+      {/* <DetyraKlase /> */}
+    </>
   )
 }
 // Eksportojmë App që të mund të përdoret në main.jsx

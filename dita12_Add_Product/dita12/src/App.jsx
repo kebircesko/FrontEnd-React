@@ -23,7 +23,7 @@ function App() {
       price: 800,
       description: 'A smartphone with an amazing camera and long-lasting battery.',
       category: 'Electronics',
-      image: 'URL e imazhit',
+      image: 'https://media.gq-magazine.co.uk/photos/5d1399752881cc7da90a84c6/master/w_1600,c_limit/nokia3310.jpg',
     },
     {
       id: 3,
@@ -31,15 +31,16 @@ function App() {
       price: 150,
       description: 'Noise-cancelling headphones for immersive sound experience.',
       category: 'Accessories',
-      image: 'URL e imazhit',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX1BhBzceBrGBNYP0F9CxRFjZK6MTa-0ALcJzErG0acbAZdn4fN_X8tMs&s=10',
     },
+   
     {
       id: 4,
-      name: 'Shirt',
-      price: 50,
+      name: '2006-08 Liverpool Home Shirt Torres',
+      price: 200,
       description: 'A comfortable cotton shirt.',
       category: 'Clothing',
-      image: 'URL e imazhit',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNxoo_Tbvde6HxkBWp9KB-EeNVxY7-ovN63UImCVHYhjgUgaQryxuJbho&s=10',
     },
   ];
   // Krijojmë state për produktet
