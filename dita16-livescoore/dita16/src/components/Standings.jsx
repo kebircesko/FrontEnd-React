@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { espn } from '../scoresApi';
 
 function Standings() {
   const [teams, setTeams] = useState([]);
@@ -7,8 +7,8 @@ function Standings() {
   const [error, setError] = useState('');
   useEffect(() => {
     let active = true;
-    axios
-      .get('/api/v2/sports/soccer/eng.1/standings', { timeout: 15000 })
+    espn
+      .get('/v2/sports/soccer/eng.1/standings', { timeout: 15000 })
       .then((response) => {
         if (!active) return;
         setTeams(response.data.children?.[0]?.standings?.entries || []);

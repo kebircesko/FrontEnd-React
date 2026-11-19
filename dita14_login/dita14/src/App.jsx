@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Toaster, toast } from 'react-hot-toast';
+import {Toaster, toast , } from 'react-hot-toast';
+import Swal from 'sweetalert2'
 //Import Toster për të shfaqur njoftime në ekran
 //per të instaluar: npm install react-hot-toast
 //linku per alert https://react-hot-toast.com/docs/toast
 //nje tjeter https://sweetalert2.github.io/#examples
+//npm install sweetalert2
 import { Link } from "react-router-dom";
 //install react-router-dom: npm install react-router-dom
 import './App.css';
@@ -29,15 +31,20 @@ function App() {
   // ---------------------------
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!username || !password) {
-      setError('Të dy fushat janë të detyrueshme!');
+    if (!username || !password){
+      // setError('Të dy fushat janë të detyrueshme!');
       setSuccess(false);
-      toast.error('Të dy fushat janë të detyrueshme!');
+      // toast.error('Të dy fushat janë të detyrueshme!');
+      Swal.fire({
+      title: "Ki kujdes!",
+      text: "Të dy fushat janë të detyrueshme!",
+      icon: "warning",
+});
       return;
     }
     if (username === 'kebir' && password === 'admin123') {
       setError('');
-      setSuccess(true);
+      // setSuccess(true);
       toast.success('Jeni kyçur me sukses!');
     } 
     else {

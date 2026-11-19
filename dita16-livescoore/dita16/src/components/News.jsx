@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { espn } from '../scoresApi';
 
 function News() {
   const [articles, setArticles] = useState([]);
@@ -8,8 +8,8 @@ function News() {
   useEffect(() => {
     let active = true;
     // I njëjti parim si axios.get() në shembullin e crypto-s.
-    axios
-      .get('/api/site/v2/sports/soccer/eng.1/news', {
+    espn
+      .get('/site/v2/sports/soccer/eng.1/news', {
         params: { limit: 5 },
         timeout: 15000,
       })

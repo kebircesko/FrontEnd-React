@@ -29,13 +29,13 @@ function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!username || !email || !password || !confirmPassword) {
-      setError("Të gjitha fushat janë të detyrueshme!");
+      // setError("Të gjitha fushat janë të detyrueshme!");
       toast.error("Të gjitha fushat janë të detyrueshme!");
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Fjalëkalimet nuk përputhen!");
+      // setError("Fjalëkalimet nuk përputhen!");
       toast.error("Fjalëkalimet nuk përputhen!");
       return;
     }
@@ -45,11 +45,10 @@ function Register() {
       toast.error("Password duhet të ketë të paktën 6 karaktere!");
       return;
     }
-
     setError("");
     setSuccess(true);
-
     toast.success("Regjistrimi u krye me sukses!");
+    
   };
   // -----------------------
   // JSX
@@ -69,7 +68,7 @@ function Register() {
               value={username}
               onChange={handleChange}
               placeholder=" "
-              required
+              
             />
             <label>Username</label>
           </div>
@@ -80,7 +79,7 @@ function Register() {
               value={email}
               onChange={handleChange}
               placeholder=" "
-              required
+             
             />
             <label>Email</label>
           </div>
@@ -91,7 +90,7 @@ function Register() {
               value={password}
               onChange={handleChange}
               placeholder=" "
-              required
+              
             />
             <label>Password</label>
           </div>
@@ -102,7 +101,7 @@ function Register() {
               value={confirmPassword}
               onChange={handleChange}
               placeholder=" "
-              required
+              
             />
             <label>Confirm Password</label>
           </div>

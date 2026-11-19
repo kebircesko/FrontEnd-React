@@ -85,7 +85,7 @@ function App() {
                   <div className="coin-details">
                     <strong className="coin-name">{coin.name}</strong> {/* Emri i kriptomonedhës */}
                     <span className="coin-price">
-                      ${coin.current_price.toFixed(2)} {/* Çmimi i rrumbullakuar me 2 shifra pas presjes */}
+                      ${coin.current_price.toFixed(4)} {/* Çmimi i rrumbullakuar me 2 shifra pas presjes */}
                     </span>
                   </div>
                 </div>

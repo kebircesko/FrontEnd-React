@@ -38,9 +38,9 @@ function MatchList({ matches, leagues, favorites, toggleFavorite }) {
               <div>
                 <span className="competition-icon">⚽</span>
                 <h3>
-                  {league
+                  {firstMatch.leagueName || (league
                     ? league.name
-                    : firstMatch.competitions[0].altGameNote || 'Futboll'}
+                    : firstMatch.competitions[0].altGameNote || 'Futboll')}
                 </h3>
               </div>
               <span>{leagueGames.length}</span>

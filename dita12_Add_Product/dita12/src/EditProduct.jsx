@@ -106,7 +106,7 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
           </select>
         </div>
 
-        {/* 🔹 Zgjedhja e burimit të imazhit */}
+        {/*  Zgjedhja e burimit të imazhit */}
         <div style={{ marginTop: "15px" }}>
           <label>Image Source:</label>
           <div>
@@ -134,7 +134,7 @@ const EditProduct = ({ product, updateProduct, onCancel }) => {
           </div>
         </div>
 
-        {/* 🔹 Input për URL ose për File sipas zgjedhjes */}
+        {/*  Input për URL ose për File sipas zgjedhjes */}
         {imageSource === "url" ? (
           <div>
             <label htmlFor="image">Image URL:</label>

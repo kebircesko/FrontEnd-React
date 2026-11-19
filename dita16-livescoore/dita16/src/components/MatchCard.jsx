@@ -33,7 +33,7 @@ function MatchCard({ match, isFavorite, toggleFavorite }) {
         }
         target="_blank"
         rel="noreferrer"
-        aria-label={`${home.team.displayName} kundër ${away.team.displayName}, detajet në ESPN`}
+        aria-label={`${home.team.displayName} kundër ${away.team.displayName}, detajet në ${match.provider || 'ESPN'}`}
       >
         <span className="team team-home">
           <span>{home.team.shortDisplayName || home.team.displayName}</span>

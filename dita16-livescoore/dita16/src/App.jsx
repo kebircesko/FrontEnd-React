@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { espn, getMatches } from './scoresApi';
 import Header from './components/Header';
 import LeagueSidebar from './components/LeagueSidebar';
 import MatchFilters from './components/MatchFilters';
@@ -31,8 +31,8 @@ function App() {
   // Lista e ligave merret vetëm kur hapet faqja.
   useEffect(() => {
     let active = true;
-    axios
-      .get('/api/site/v2/leagues/dropdown', {
+    espn
+      .get('/site/v2/leagues/dropdown', {
         params: { sport: 'soccer', lang: 'en', region: 'us' },
         timeout: 15000,
       })
@@ -54,16 +54,13 @@ function App() {
   // useEffect përsëritet kur ndryshon data ose liga.
   useEffect(() => {
     let active = true;
+    const controller = new AbortController();
     const fetchMatches = () => {
-      axios
-        .get(`/api/site/v2/sports/soccer/${selectedLeague}/scoreboard`, {
-          params: { dates: selectedDate.replaceAll('-', ''), limit: 1000 },
-          timeout: 15000,
-        })
-        .then((response) => {
+      getMatches(selectedDate, selectedLeague, controller.signal)
+        .then((events) => {
           // Përgjigjja e datës së vjetër nuk e ndryshon datën e re.
           if (!active) return;
-          setMatches(response.data.events || []);
+          setMatches(events);
           setError('');
           setLoading(false);
           setUpdatedAt(
@@ -89,6 +86,7 @@ function App() {
     return () => {
       active = false;
       clearInterval(intervalId);
+      controller.abort();
     };
   }, [selectedDate, selectedLeague]);
 
@@ -206,8 +204,11 @@ function App() {
           live<span>score</span>
         </strong>
         <p>Shkolla Digjitale Prizren · Dita 16</p>
+        <a href="https://sportscore.com/" target="_blank" rel="noopener">
+          Powered by SportScore ↗
+        </a>
         <a href="https://www.espn.com/soccer/" target="_blank" rel="noreferrer">
-          Të dhënat: ESPN ↗
+          Burimi rezervë dhe lajmet: ESPN ↗
         </a>
       </footer>
     </>
